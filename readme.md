@@ -105,9 +105,12 @@ oc logs your-build-pod-name
 ![Build pod](./images/build-pod.png)
 
 - The application is now technically deployed on OpenShift but it will not work because it has these environment variables that it's trying to grab that don't actually exist. If you look at the logs of your application pod which will be in the form of something like `application-name-randomstring` you will be able to see the application not finding the environment variables. To remedy this we now need to provide the previously created secrets to our `Deployment` of the application.
-- Let's mount the Event Streams truststore certificate as a volume.
+- Let's mount the Event Streams truststore certificate as a volume to your deployment.
 ```shell
-oc set volume deployments/cp-4-i-financial-esv-10-mockproducer-svc --add --type=secret --secret-name=eventstreams-truststore-cert --mount-path=/certs/ssl
+oc get deployments
+```
+```shell
+oc set volume deployments/your-deployment-name --add --type=secret --secret-name=eventstreams-truststore-cert --mount-path=/certs/ssl
 ```
 - Note the `--mount-path=`. This should have parity with the secrets yaml file value for `stringData.CERT_LOCATION:`. In this example the path is `/certs/ssl` so in the secrets it should be `stringData.CERT_LOCATION: /certs/ssl/es-cert.p12` as we're mounting our `es-cert.p12` file from the `eventstreams-truststore-cert` secret into `/certs/ssl` inside a pod.
 
