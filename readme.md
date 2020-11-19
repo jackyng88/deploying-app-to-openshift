@@ -139,7 +139,7 @@ oc start-build build-config-name
 ![Application Pods](./images/application-pods.png)
 
 
-## Deploying a Local Machine via the CLI
+## Deploying from a Local Machine via the CLI
 - Similar to the previous section that deployed via the OpenShift web console, this will make use of the constructed Dockerfiles that were bootstrapped at the creation of the Quarkus application in `src/main/docker`.
 - Also like the previous section this will make use of Secrets to house our sensitive information so that we can provide the Quarkus and Kafka application with the proper environment variables to connect.
 - Again similar to the previous section, make sure that you are logged into your OpenShift cluster. Go to your OpenShift cluster from the Web UI, and then to the top right corner to get the token so you can login via CLI.
