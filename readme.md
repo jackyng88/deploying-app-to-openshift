@@ -42,10 +42,10 @@
 ```shell
 mvn package
 ```
-- Open the `.gitignore` file and commment out or remove the target folder under Maven:
+- Open the `.gitignore` file and commment back in or remove the target folder under Maven:
 ```shell
 # Maven
-# target/
+target/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
