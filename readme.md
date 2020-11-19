@@ -157,7 +157,7 @@ mvn package
 oc new-build --strategy docker --dockerfile - --code . --name your-buildconfig-name < ./src/main/docker/Dockerfile.jvm
 ```
 - Things of note:
-  - We're giving it `--strategy docker`` to indicate that we're user a Docker image.
+  - We're giving it `--strategy docker` to indicate that we're user a Docker image.
   - The `--dockerfile -` means that we're going to be providing a streamed Dockerfile by ways of `< ./src/main/docker/Dockerfile.jvm`. Note that this will also allow you to provide inline Dockerfiles if you so desire.
   - Next, `--code .` indicates that we're going to be using the current folder and project as the context to upload.
   - Lastly `--name your-buildconfig-name` is where you can provide the name of BuildConfig.
