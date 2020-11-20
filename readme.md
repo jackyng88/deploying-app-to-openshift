@@ -65,7 +65,7 @@ echo "your-string" | base64
 ```shell
 oc apply -f application-secret.yaml
 ```
-
+- Great now we've created the necessary secrets for connecting our Quarkus application to a Kafka Cluster.
 
 ## Deployment from a Github Repository and the OpenShift Web UI
 - This deployment path will have you push your project or application to Github. OpenShift will then kick off a build from your the Dockerfile from the repository.
@@ -125,6 +125,8 @@ oc set volume deployments/your-deployment-name --add --type=secret --secret-name
 ```shell
 oc set env deployments/your-application-name --from=secret/example-secret
 ```
+- **Minor Note** - These secrets can also be created from the OpenShift web console UI as well as injected into their respective resources. For instance in the `Administrator` view you would go to `Workloads` and then `Deployment/Deployment Configs` click the name of your created resource and hit the `Environment` tab. From here you can inject all values from ConfigMaps or Secrets or you can manually add them:
+![Environment Variable Injection from UI](./images/env-ui-injection.png)
 
 - Now we need to start a new build. Get the name of your buildconfig first:
 ```shell
