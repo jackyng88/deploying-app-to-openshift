@@ -195,3 +195,13 @@ oc set env dc/your-deploymentconfig-name --from=secret/example-secret
 oc get pods
 oc logs application-pod-name
 ```
+
+
+## Exposing the Application 
+- Now that the Quarkus application is deployed on OpenShift there are situations where you will need to expose the application externally through the public network (Routes) or internally (clusterIP) for access only within the OpenShift cluster. 
+- When deploying the application from the OpenShift web console UI there is an option to expose the route for external traffic which you can also do from the CLI by running something like:
+```shell
+oc expose svc your-service-name --port=8080
+```
+- This exposes the `Service` which is automatically created when you deploy your application.
+- 
